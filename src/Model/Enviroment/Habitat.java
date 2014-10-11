@@ -5,47 +5,68 @@ import Model.Characters.Profession;
 
 import java.awt.*;
 import java.util.Dictionary;
+import java.util.Enumeration;
+import java.util.Hashtable;
 
 /**
  * Среда обитания.
  */
 public class Habitat {
-    private Dictionary <Integer,Profession> settlersProfessions;
-    private Dictionary<Point,Integer> locationsOfSettlers;
+    private Hashtable <Integer,Profession> settlersProfessions;
+    private Hashtable<Point,Integer> locationsOfSettlers;
     private int widht;
     private int height;
-
-    public Dictionary<Integer, Profession> getSettlersProfessions() {
-        return settlersProfessions;
-    }
-
-    public void setSettlersProfessions(Dictionary<Integer, Profession> settlersProfessions) {
-        this.settlersProfessions = settlersProfessions;
-    }
 
     public Habitat(Dictionary<Integer,Person> settlers, int widht, int height )
     {
         this.widht = widht;
         this.height = height;
-        /** Разобраться как делать словарь и форыч*/
-        locationsOfSettlers = new Dictionary<Point,Integer>();
-        setSettlersProfessions(new Dictionary<Integer,Profession>());
+        setLocationsOfSettlers(new Hashtable<Point, Integer>());
+        setSettlersProfessions(new Hashtable<Integer, Profession>());
     }
     public void refreshLocation(Dictionary<Integer,Person> settlers)
     {
-        locationsOfSettlers.notifyAll();
-        foreach (Person p in settlers.elements())
-        {
-            if (locationsOfSettlers.elements().contains(p.GetLocation()))
-            {
-                locationsOfSettlers.remove(p.GetLocation()); //лист
-            }
-            locationsOfSettlers.put(p.GetLocation(), p.GetId());
+        getLocationsOfSettlers().clear();
+        Enumeration<Integer> enumKey = settlers.keys();
+        while(enumKey.hasMoreElements()) {
+            Integer key = enumKey.nextElement();
+            Person person = settlers.get(key);
+            if (getLocationsOfSettlers().containsKey(person.getLocation()))
+                getLocationsOfSettlers().remove(person.getLocation());
+            getLocationsOfSettlers().put(person.getLocation(), person.getId());
         }
 
     }
-    public Dictionary<Point, Integer> GetDictionaryOfLocations()
-    {
+
+    public Hashtable<Integer, Profession> getSettlersProfessions() {
+        return settlersProfessions;
+    }
+
+    public void setSettlersProfessions(Hashtable<Integer, Profession> settlersProfessions) {
+        this.settlersProfessions = settlersProfessions;
+    }
+
+    public Hashtable<Point, Integer> getLocationsOfSettlers() {
         return locationsOfSettlers;
+    }
+
+    public void setLocationsOfSettlers(Hashtable<Point, Integer> locationsOfSettlers) {
+        this.locationsOfSettlers = locationsOfSettlers;
+    }
+
+    public int getWidht() {
+        return widht;
+    }
+
+    public void setWidht(int widht) {
+        this.widht = widht;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 }

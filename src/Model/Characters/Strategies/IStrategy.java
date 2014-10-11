@@ -9,5 +9,5 @@ import Model.Enviroment.Habitat;
  * Принимает решение что делать персонажу в следующий ход.
  */
 public interface IStrategy {
-    Decision TakeDecision(IPersonToStrategy person,PersonalEnviroment personEnvir, Habitat settlement);
+    Decision takeDecision(IPersonToStrategy person,PersonalEnviroment personEnvir, Habitat settlement);
 }
