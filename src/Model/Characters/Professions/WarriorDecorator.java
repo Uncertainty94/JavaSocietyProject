@@ -16,7 +16,7 @@ public class WarriorDecorator implements IProfessionDecorator {
     {
         Random r = new Random();
         person.setEqip(Equipment.StandartEquipment.Weapons.Sword, Equipment.StandartEquipment.Armors.MediumArmor, 30);
-        person.setLocation(new Point(r.nextInt(settlement.getWidht()), r.nextInt(settlement.getHeight())));
+        person.setLocation(new Point(r.nextInt(settlement.getWight()), r.nextInt(settlement.getHeight())));
         person.changeStrategy(new WarriorStrategy());
         person.setReview(90);
         person.setSpeed(50);

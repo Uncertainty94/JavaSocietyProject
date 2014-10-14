@@ -3,6 +3,7 @@ package Model.Enviroment;
 import Model.Characters.Person;
 import Model.Kingdom;
 
+import java.awt.*;
 import java.util.*;
 
 /**
@@ -13,14 +14,15 @@ public class PersonalEnvironment {
     public PersonalEnvironment(Person person, Kingdom world)
     {
         NearestCharacters = new ArrayList<Person>();
-        foreach (var place in world.GetHabitat().GetDictionaryOfLocations().Keys)
-        {
-            if (
-                    Math.Sqrt(Math.Pow(place.X - person.GetLocation().X, 2) +
-                            Math.Pow(place.Y - person.GetLocation().Y, 2)) <= person.GetRewiew())
-                NearestCharacters.Add(
-                        world.GetDictionaryOfCharacters()[world.GetHabitat().GetDictionaryOfLocations()[place]]);
+
+        Enumeration<Point> enumKey = world.getHabitat().getLocationsOfSettlers().keys();
+        while(enumKey.hasMoreElements()) {
+            Point key = enumKey.nextElement();
+            Integer val =  world.getHabitat().getLocationsOfSettlers().get(key);
+            if (Math.sqrt(Math.pow(key.x - person.getLocation().x, 2) + Math.pow(key.y - person.getLocation().y, 2)) <= person.getReview())
+                NearestCharacters.add(world.getCharacter(val));
         }
+
     }
 
 }

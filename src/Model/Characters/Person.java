@@ -1,11 +1,8 @@
 package Model.Characters;
 
 import Model.Characters.Decisions.Decision;
-import Model.Characters.Strategies.IStrategy;
-import Model.Enviroment.Armor;
-import Model.Enviroment.Equipment;
-import Model.Enviroment.Habitat;
-import Model.Enviroment.Weapon;
+import Model.Characters.Strategies.*;
+import Model.Enviroment.*;
 
 import java.awt.*;
 
@@ -174,8 +171,12 @@ public class Person implements IPersonToStrategy {
         setBag(0);
         setId(id);
         setStatus(PersonState.LastActionCompleted);
-        setDecision(Actions.Action.Free());
+        setDecision(Actions.free());
     }
+    public Person clone() throws CloneNotSupportedException {
+        return (Person)super.clone();
+    }
+
     public void setEqip(Weapon newWeapon, Armor newArmor, int newCash)
     {
         getEquipment().сhangeWeapon(newWeapon);
@@ -243,9 +244,9 @@ public class Person implements IPersonToStrategy {
     {
         return getLevel() > 0 ? getLevel() : 1;
     }
-    public Decision takeDecision(PersonalEnviroment personalEnviroment, Habitat settlement)
+    public Decision takeDecision(PersonalEnvironment personalEnviroment, Habitat settlement)
     {
-        return getStrategy().TakeDecision(this,personalEnviroment,settlement);
+        return getStrategy().takeDecision(this,personalEnviroment,settlement);
     }
     public Decision getLastDecision(){
        return getDecision();

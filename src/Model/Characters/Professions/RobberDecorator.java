@@ -16,7 +16,7 @@ public class RobberDecorator implements IProfessionDecorator {
     {
         Random r = new Random() ;
         person.setEqip(Equipment.StandartEquipment.Weapons.Dagger, Equipment.StandartEquipment.Armors.UsualArmor, 30);
-        person.setLocation(new Point((int)(Math.random() * ((settlement.getWidht()/2) + 1)),(int)(Math.random() * ((settlement.getHeight()/2) + 1))));
+        person.setLocation(new Point((int)(Math.random() * ((settlement.getWight()/2) + 1)),(int)(Math.random() * ((settlement.getHeight()/2) + 1))));
         person.setReview(110);
         person.setSpeed(95);
         person.setStrategy (new RobberStrategy());

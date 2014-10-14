@@ -9,12 +9,12 @@ import Model.Characters.Profession;
  */
 public class ChangeProfession extends Decision {
 
-    public Profession NewProfession;
+    public Profession newProfession;
     @Override
     public void apply(Person person)
     {
         person.setStatus(newState);
-        person.setProfession(NewProfession);
+        person.setProfession(newProfession);
         person.setStatus(PersonState.LastActionCompleted);
         person.setDecision(null);
     }

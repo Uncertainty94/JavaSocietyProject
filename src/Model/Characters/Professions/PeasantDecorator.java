@@ -16,7 +16,7 @@ public class PeasantDecorator implements IProfessionDecorator {
     {
         Random r = new Random();
         person.setEqip(Equipment.StandartEquipment.Weapons.Hands, Equipment.StandartEquipment.Armors.NoneArmor, 50);
-        person.setLocation(new Point(r.nextInt(settlement.getWidht()), r.nextInt(settlement.getHeight())));
+        person.setLocation(new Point(r.nextInt(settlement.getWight()), r.nextInt(settlement.getHeight())));
         person.setReview(100);
         person.setSpeed(70);
         person.setStrategy(new PeasantStrategy());

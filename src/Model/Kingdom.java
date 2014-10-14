@@ -1,41 +1,44 @@
 package Model;
 
+import Model.Characters.Person;
+import Model.Enviroment.Habitat;
+
+import java.util.Hashtable;
+
 /**
  * Государство . Весь мир собственно.
  */
 public class Kingdom
 {
-    /**Окружающая среда (поля, лес, замок, рынок...).**/
     Habitat _settlement;
-    /** Словарь персонажей(ключ = ID, значение = IPerson).**/
-    private  Dictionary<int, Person> _settlers = new Dictionary<int, Person>();
+
+    private Hashtable<Integer, Person> settlers = new Hashtable<Integer, Person>();
     public Kingdom(int countOfSettlers, int drawAreaWidht, int drawAreaHeight)
     {
 
-        _settlement = new Habitat(_settlers, drawAreaWidht, drawAreaHeight);
+        _settlement = new Habitat(settlers, drawAreaWidht, drawAreaHeight);
         PersonFactory factory = new PersonFactory(_settlement);
         for (int i = 0; i <= countOfSettlers; i++)
         {
-            Person man = factory.GetMan();
-            _settlers.Add(i, man);
+            Person man = factory.getMan();
+            settlers.put(i, man);
         }
-        _settlement.RefreshLocation(_settlers);
+        _settlement.refreshLocation(settlers);
     }
-    /** Получиьт ссылку на персонажа с заданным ID.**/
-    public Person GetCharacter(int id)
+    public Person getCharacter(int id)
     {
-        return _settlers[id];
+        return settlers.get(id);
     }
     /** Получить словарь ID-IPerson всех персонажей мира.**/
-    public Dictionary<int, Person> GetDictionaryOfCharacters()
+    public Hashtable<Integer, Person> getDictionaryOfCharacters()
     {
-        return _settlers;
+        return settlers;
     }
     /** Получить контейнер окружающей среды. **/
-    public Habitat GetHabitat()
+    public Habitat getHabitat()
     {
         return _settlement;
     }
 }
 
-}
+

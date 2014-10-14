@@ -3,17 +3,16 @@ package Model.Characters;
 import Model.Characters.Decisions.*;
 import Model.Enviroment.Habitat;
 import Model.Enviroment.PersonalEnvironment;
+import Model.RandomContainer;
 
-import javax.print.attribute.standard.Destination;
 import java.awt.*;
-import java.util.Enumeration;
 import java.util.Iterator;
-import java.util.Random;
 
 /**
  * Created by serebryanskiysergei on 11-Oct-14.
  */
 public class Actions {
+    static RandomContainer random = new RandomContainer();
     public static Attack attacking(IPersonToStrategy opponent)
     {
         Attack decision = new Attack();
@@ -52,7 +51,7 @@ public class Actions {
     public static MoveToPoint patroling(Habitat settlement)
     {
         MoveToPoint decision = new MoveToPoint();
-        decision.destination = new Point((int)(Math.random() * ((settlement.getWidht()) + 1)),(int)(Math.random() * ((settlement.getHeight()) + 1)));
+        decision.destination = new Point((int)(Math.random() * ((settlement.getWight()) + 1)),(int)(Math.random() * ((settlement.getHeight()) + 1)));
         decision.newState = PersonState.Moving;
         decision.nextAction = ActionType.Free;
         return decision;
@@ -87,80 +86,52 @@ public class Actions {
     }
     public static MoveToPoint goingToFarm(Habitat settlement,PersonalEnvironment pEnvir)
     {
-        var move = new MoveToPoint
-        {
-            NewState = State.Moving,
-                    NextAction = ActionType.Work,
-                    Destination =
-                            {
-                                    X = RandomContainer.Random.Next(settlement.Farm.X, settlement.Farm.X + settlement.Farm.Width),
-                                    Y = RandomContainer.Random.Next(settlement.Farm.Y, settlement.Farm.Y + settlement.Farm.Height)
-                            }
-        };
+
+        MoveToPoint move = new MoveToPoint();
+        move.newState = PersonState.Moving;
+        move.nextAction = ActionType.Work;
+        move.destination = new Point(random.next(settlement.Farm.x, settlement.Farm.x + settlement.Farm.width),
+                random.next(settlement.Farm.y, settlement.Farm.y + settlement.Farm.height));
         return move;
     }
 
 
     public static Working work(Habitat settlement,PersonalEnvironment pEnvir)
     {
-        var decision = new Working {NewState = State.Working, NextAction = ActionType.MoveToTrader};
+        Working decision = new Working();
+        decision.newState = PersonState.Working;
+        decision.nextAction = ActionType.MoveToTrader;
         return decision;
     }
 
-    /// <summary>
-    /// Идет продать собранное зерно.
-    /// </summary>
-    /// <param name="settlement">Мир</param>
-    /// <param name="pEnvir">Окружение персонажа.</param>
-    /// <returns></returns>
-    public static MoveToPoint GoingToTrader(Habitat settlement,PersonalEnvironment pEnvir)
+    public static MoveToPoint goingToTrader(Habitat settlement,PersonalEnvironment pEnvir)
     {
-        var move = new MoveToPoint
-        {
-            Destination = settlement.FindFullTraderPlace(),
-                    NextAction = ActionType.Sell,
-                    NewState = State.Moving
-        };
-        return move;
+        MoveToPoint decision = new MoveToPoint();
+        decision.destination = settlement.findTrader();
+        decision.nextAction = ActionType.Sell;
+        decision.newState = PersonState.Moving;
+        return decision;
     }
-    /// <summary>
-    /// Идти за иструментами.
-    /// </summary>
-    /// <param name="settlement"></param>
-    /// <param name="pEnvir"></param>
-    /// <returns></returns>
-    public static MoveToPoint GoingForInstruments(Habitat settlement, PersonalEnvironment pEnvir)
+
+    public static MoveToPoint goingForInstruments(Habitat settlement, PersonalEnvironment pEnvir)
     {
-        var move = new MoveToPoint
-        {
-            Destination = settlement.FindFullTraderPlace(),
-                    NextAction = ActionType.BuyInstruments,
-                    NewState = State.Moving
-        };
-        return move;
+        MoveToPoint decision = new MoveToPoint();
+        decision.destination = settlement.findTrader();
+        decision.nextAction = ActionType.BuyInstruments;
+        decision.newState = PersonState.Moving;
+        return decision;
     }
-    /// <summary>
-    /// Идет на работу.
-    /// </summary>
-    /// <param name="settlement">Окружающий мир.</param>
-    /// <returns></returns>
-    public static MoveToPoint GoingToCrafthouse(Habitat settlement, PersonalEnvironment pEnvir)
+    public static MoveToPoint goingToCrafthouse(Habitat settlement, PersonalEnvironment pEnvir)
     {
         MoveToPoint decision = new MoveToPoint();
         decision.newState = PersonState.Moving;
         decision.nextAction = ActionType.Craft;
-        decision.destination =new Point(RandomContainer.Random.Next(settlement.CrHouse.X,
-                settlement.CrHouse.X + settlement.CrHouse.Width),RandomContainer.Random.Next(settlement.CrHouse.Y,
-                settlement.CrHouse.Y + settlement.CrHouse.Height));
-        return move;
+        decision.destination =new Point(random.next(settlement.CraftHouse.x,
+                settlement.CraftHouse.x + settlement.CraftHouse.width),random.next(settlement.CraftHouse.y,
+                settlement.CraftHouse.y + settlement.CraftHouse.height));
+        return decision;
     }
-    /// <summary>
-    /// Работает.
-    /// </summary>
-    /// <param name="settlement"></param>
-    /// <param name="pEnvir"></param>
-    /// <returns></returns>
-    public static Working Crafting(Habitat settlement, PersonalEnvironment pEnvir)
+    public static Working crafting(Habitat settlement, PersonalEnvironment pEnvir)
     {
         Working decision = new Working ();
         decision.newState = PersonState.Working;
