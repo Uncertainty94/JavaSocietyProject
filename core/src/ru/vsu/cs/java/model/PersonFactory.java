@@ -16,7 +16,7 @@ public class PersonFactory
     private PeasantPrototype _peasantPrototype;
     private CraftsmanPrototype _craftsmanPrototype;
 
-    public Person getMan()
+    public Person getMan() throws CloneNotSupportedException
     {
         RandomContainer random = new RandomContainer();
         Person man = new Person(id);

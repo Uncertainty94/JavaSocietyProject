@@ -20,7 +20,12 @@ public class Kingdom
         PersonFactory factory = new PersonFactory(_settlement);
         for (int i = 0; i <= countOfSettlers; i++)
         {
-            Person man = factory.getMan();
+            Person man = null;
+            try {
+                man = factory.getMan();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
             settlers.put(i, man);
         }
         _settlement.refreshLocation(settlers);
