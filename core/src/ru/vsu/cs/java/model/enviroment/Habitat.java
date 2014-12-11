@@ -1,8 +1,8 @@
-package Model.Enviroment;
+package ru.vsu.cs.java.model.enviroment;
 
-import Model.Characters.Person;
-import Model.Characters.Profession;
-import Model.RandomContainer;
+import ru.vsu.cs.java.model.characters.Person;
+import ru.vsu.cs.java.model.characters.Profession;
+import ru.vsu.cs.java.model.RandomContainer;
 
 import java.awt.*;
 import java.util.Dictionary;

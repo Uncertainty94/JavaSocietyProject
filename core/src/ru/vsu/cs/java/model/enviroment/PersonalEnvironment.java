@@ -1,7 +1,7 @@
-package Model.Enviroment;
+package ru.vsu.cs.java.model.enviroment;
 
-import Model.Characters.Person;
-import Model.Kingdom;
+import ru.vsu.cs.java.model.characters.Person;
+import ru.vsu.cs.java.model.Kingdom;
 
 import java.awt.*;
 import java.util.*;

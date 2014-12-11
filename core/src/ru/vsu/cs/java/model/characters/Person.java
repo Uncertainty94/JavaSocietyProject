@@ -1,13 +1,13 @@
-package Model.Characters;
+package ru.vsu.cs.java.model.characters;
 
-import Model.Characters.Decisions.Decision;
-import Model.Characters.Strategies.*;
-import Model.Enviroment.*;
+import ru.vsu.cs.java.model.characters.decisions.Decision;
+import ru.vsu.cs.java.model.characters.strategies.*;
+import ru.vsu.cs.java.model.enviroment.*;
 
 import java.awt.*;
 
-import static Model.Characters.Profession.*;
-import static Model.Characters.Profession.Warrior;
+import static ru.vsu.cs.java.model.characters.Profession.*;
+import static ru.vsu.cs.java.model.characters.Profession.Warrior;
 
 /**
  * Фундментальый класс человека

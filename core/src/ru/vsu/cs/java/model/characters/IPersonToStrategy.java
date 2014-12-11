@@ -1,8 +1,8 @@
-package Model.Characters;
+package ru.vsu.cs.java.model.characters;
 
-import Model.Characters.Decisions.Decision;
-import Model.Characters.Strategies.IStrategy;
-import Model.Enviroment.Equipment;
+import ru.vsu.cs.java.model.characters.decisions.Decision;
+import ru.vsu.cs.java.model.characters.strategies.IStrategy;
+import ru.vsu.cs.java.model.enviroment.Equipment;
 
 import java.awt.*;
 

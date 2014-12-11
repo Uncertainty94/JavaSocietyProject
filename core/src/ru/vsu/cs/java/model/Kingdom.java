@@ -1,7 +1,7 @@
-package Model;
+package ru.vsu.cs.java.model;
 
-import Model.Characters.Person;
-import Model.Enviroment.Habitat;
+import ru.vsu.cs.java.model.characters.Person;
+import ru.vsu.cs.java.model.enviroment.Habitat;
 
 import java.util.Hashtable;
 

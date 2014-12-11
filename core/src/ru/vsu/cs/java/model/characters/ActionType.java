@@ -1,4 +1,4 @@
-package Model.Characters;
+package ru.vsu.cs.java.model.characters;
 
 /**
  * Типы действий персонажа.

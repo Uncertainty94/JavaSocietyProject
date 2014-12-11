@@ -1,9 +1,10 @@
-package Model.Characters;
+package ru.vsu.cs.java.model.characters;
 
-import Model.Characters.Decisions.*;
-import Model.Enviroment.Habitat;
-import Model.Enviroment.PersonalEnvironment;
-import Model.RandomContainer;
+import ru.vsu.cs.java.model.characters.decisions.*;
+import ru.vsu.cs.java.model.characters.Person;
+import ru.vsu.cs.java.model.enviroment.Habitat;
+import ru.vsu.cs.java.model.enviroment.PersonalEnvironment;
+import ru.vsu.cs.java.model.RandomContainer;
 
 import java.awt.*;
 import java.util.Iterator;

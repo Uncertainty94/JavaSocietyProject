@@ -1,11 +1,11 @@
-package Model.Characters.Strategies;
+package ru.vsu.cs.java.model.characters.strategies;
 
-import Model.Characters.*;
-import Model.Characters.Decisions.ChangeProfession;
-import Model.Characters.Decisions.Decision;
-import Model.Characters.Decisions.TraderHealing;
-import Model.Enviroment.Habitat;
-import Model.Enviroment.PersonalEnvironment;
+import ru.vsu.cs.java.model.characters.*;
+import ru.vsu.cs.java.model.characters.decisions.ChangeProfession;
+import ru.vsu.cs.java.model.characters.decisions.Decision;
+import ru.vsu.cs.java.model.characters.decisions.TraderHealing;
+import ru.vsu.cs.java.model.enviroment.Habitat;
+import ru.vsu.cs.java.model.enviroment.PersonalEnvironment;
 
 /**
  * Created by serebryanskiysergei on 13-Oct-14.

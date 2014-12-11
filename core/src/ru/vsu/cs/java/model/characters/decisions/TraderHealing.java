@@ -1,8 +1,8 @@
-package Model.Characters.Decisions;
+package ru.vsu.cs.java.model.characters.decisions;
 
-import Model.Characters.ActionType;
-import Model.Characters.Person;
-import Model.Characters.PersonState;
+import ru.vsu.cs.java.model.characters.ActionType;
+import ru.vsu.cs.java.model.characters.Person;
+import ru.vsu.cs.java.model.characters.PersonState;
 
 /**
  * Created by serebryanskiysergei on 07-Oct-14.

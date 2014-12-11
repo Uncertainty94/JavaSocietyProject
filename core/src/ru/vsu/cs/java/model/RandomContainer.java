@@ -1,4 +1,4 @@
-package Model;
+package ru.vsu.cs.java.model;
 
 import java.util.Random;
 

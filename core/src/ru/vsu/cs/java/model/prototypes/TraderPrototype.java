@@ -1,7 +1,7 @@
-package Model.Prototypes;
+package ru.vsu.cs.java.model.prototypes;
 
-import Model.Characters.Professions.TraderDecorator;
-import Model.Enviroment.Habitat;
+import ru.vsu.cs.java.model.characters.professions.TraderDecorator;
+import ru.vsu.cs.java.model.enviroment.Habitat;
 
 /**
  * Created by serebryanskiysergei on 14-Oct-14.

@@ -1,9 +1,9 @@
-package Model.Characters.Strategies;
+package ru.vsu.cs.java.model.characters.strategies;
 
-import Model.Characters.Decisions.Decision;
-import Model.Characters.IPersonToStrategy;
-import Model.Enviroment.Habitat;
-import Model.Enviroment.PersonalEnvironment;
+import ru.vsu.cs.java.model.characters.decisions.Decision;
+import ru.vsu.cs.java.model.characters.IPersonToStrategy;
+import ru.vsu.cs.java.model.enviroment.Habitat;
+import ru.vsu.cs.java.model.enviroment.PersonalEnvironment;
 
 /**
  * Стратегия персонажа.

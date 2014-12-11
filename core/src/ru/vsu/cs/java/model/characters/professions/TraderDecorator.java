@@ -1,9 +1,10 @@
-package Model.Characters.Professions;
+package ru.vsu.cs.java.model.characters.professions;
 
-import Model.Characters.Person;
-import Model.Characters.Profession;
-import Model.Enviroment.Equipment;
-import Model.Enviroment.Habitat;
+import ru.vsu.cs.java.model.characters.Person;
+import ru.vsu.cs.java.model.characters.Profession;
+import ru.vsu.cs.java.model.characters.strategies.TraderStrategy;
+import ru.vsu.cs.java.model.enviroment.Equipment;
+import ru.vsu.cs.java.model.enviroment.Habitat;
 
 import java.awt.*;
 

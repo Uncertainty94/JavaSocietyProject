@@ -1,7 +1,7 @@
-package Model.Characters.Professions;
+package ru.vsu.cs.java.model.characters.professions;
 
-import Model.Characters.Person;
-import Model.Enviroment.Habitat;
+import ru.vsu.cs.java.model.characters.Person;
+import ru.vsu.cs.java.model.enviroment.Habitat;
 
 /**
  * Created by serebryanskiysergei on 11-Oct-14.

@@ -1,4 +1,4 @@
-package Model.Enviroment;
+package ru.vsu.cs.java.model.enviroment;
 
 /**
  * Оружие персонажей.
