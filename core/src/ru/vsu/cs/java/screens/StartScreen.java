@@ -38,7 +38,6 @@ public class StartScreen extends AbstractScreen {
         Gdx.input.setInputProcessor(new InputAdapter() {
             @Override
             public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-                screenY = Gdx.graphics.getHeight() - screenY;
                 switch (button) {
                     case Input.Buttons.LEFT:
 

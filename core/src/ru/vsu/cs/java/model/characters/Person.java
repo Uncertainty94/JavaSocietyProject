@@ -31,6 +31,7 @@ public class Person implements IPersonToStrategy {
     private Person opponent;
 
 
+
     public int getHealth() {
         return health;
     }
@@ -161,8 +162,7 @@ public class Person implements IPersonToStrategy {
         this.opponent = opponent;
     }
 
-    public Person(int id)
-    {
+    public Person(int id){
         setExperience(0);
         setLevel(0);
         setMaxHealth(90 + (int)(Math.random() * ((110 - 90) + 1)));
@@ -173,12 +173,14 @@ public class Person implements IPersonToStrategy {
         setStatus(PersonState.LastActionCompleted);
         setDecision(Actions.free());
     }
+
     public Person clone() throws CloneNotSupportedException {
         return (Person)super.clone();
     }
 
-    public void setEqip(Weapon newWeapon, Armor newArmor, int newCash)
-    {
+
+
+    public void setEqip(Weapon newWeapon, Armor newArmor, int newCash){
         getEquipment().сhangeWeapon(newWeapon);
         getEquipment().сhangeArmor(newArmor);
         getEquipment().newCash(newCash);
@@ -187,8 +189,8 @@ public class Person implements IPersonToStrategy {
     {
         setBag(newbag);
     }
-    public void setProfession(Profession newProf)
-    {
+
+    public void setProfession(Profession newProf){
         resetExp();
         switch (newProf)
         {
@@ -244,24 +246,26 @@ public class Person implements IPersonToStrategy {
     {
         return getLevel() > 0 ? getLevel() : 1;
     }
-    public Decision takeDecision(PersonalEnvironment personalEnviroment, Habitat settlement)
-    {
+
+    public Decision takeDecision(PersonalEnvironment personalEnviroment, Habitat settlement) {
         return getStrategy().takeDecision(this,personalEnviroment,settlement);
     }
+
     public Decision getLastDecision(){
        return getDecision();
     }
+
     public int getFillingBag()
     {
         return getBag();
     }
-    public void resetExp()
-    {
+
+    public void resetExp(){
         setExperience(0);
         setLevel(0);
     }
-    public void changeHp(int delta)
-    {
+
+    public void changeHp(int delta){
         if (getHealth() + delta <= 0)
             setHealth(0);
         else

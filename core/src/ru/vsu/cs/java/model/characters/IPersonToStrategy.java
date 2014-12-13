@@ -25,5 +25,6 @@ public interface IPersonToStrategy {
     Profession getProfession();
     void setDecision(Decision newDecision);
     void changeStrategy(IStrategy newstrategy);
+
 }
 
